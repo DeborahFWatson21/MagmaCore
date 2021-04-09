@@ -1,0 +1,14 @@
+{
+    "name": "lava/magmacore",
+    "description": "A simple PHP framework for building web applications",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "D F Watson",
+            "email": "deborah.fwatson21@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {}
+}
