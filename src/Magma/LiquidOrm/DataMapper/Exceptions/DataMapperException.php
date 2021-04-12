@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Magma\DatabaseConnection\Exception;
+namespace Magma\LiquidOrm\DataMapper\Exceptions;
 use Exception;
 
 class DataMapperException extends Exception

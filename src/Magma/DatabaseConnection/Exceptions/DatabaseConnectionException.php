@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Magma\DatabaseConnection\Exception;
+namespace Magma\DatabaseConnection\Exceptions;
 
 use PDOException;
 

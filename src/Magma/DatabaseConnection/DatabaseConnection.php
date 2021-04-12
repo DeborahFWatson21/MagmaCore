@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Magma\DatabaseConnection;
 
-use Magma\DatabaseConnection\Exception\DatabaseConnectionException;
+use Magma\DatabaseConnection\Exceptions\DatabaseConnectionException;
 use PDO;
 use PDOException;
 
@@ -13,12 +13,12 @@ class DatabaseConnection implements DatabaseConnectionInterface
     /**
      * @var PDO
      */
-    //protected PDO $dbh;
+    protected PDO $dbh;
 
     /**
      * @var array
      */
-    //protected array $credentials;
+    protected array $credentials;
 
     /**
      * Main constructor class

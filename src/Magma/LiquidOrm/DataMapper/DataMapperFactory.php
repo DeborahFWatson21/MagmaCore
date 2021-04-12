@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-use Magma\DatabaseConnection\Exception\DataMapperException;
-use Magma\DataMapper\DataMapper;
-use Magma\DataMapper\DataMapperInterface;
+namespace Magma\LiquidOrm\DataMapper;
+
+use Magma\LiquidOrm\DataMapper\Exceptions\DataMapperException;
+use Magma\LiquidOrm\DataMapper\DataMapper;
+use Magma\LiquidOrm\DataMapper\DataMapperInterface;
 
 class DataMapperFactory
 {
