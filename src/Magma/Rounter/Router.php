@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Magma\Router;
 
-use Exception;
+use Magma\Router\Exceptions\RouterBadMethodCallException;
+use Magma\Router\Exceptions\RouterException;
 use Magma\Router\RouterInterface;
+
+
 
 class Router implements RouterInterface
 {
@@ -32,7 +35,7 @@ class Router implements RouterInterface
      * 
      * @return void
      */
-    public function add(string $route, array $params):void
+    public function add(string $route, array $params=[]):void
     {
         $this->routes[$route] = $params;
     }
@@ -60,13 +63,13 @@ class Router implements RouterInterface
                 {
                     $controllerObject->$action();
                 }else{
-                    throw new Exception();
+                    throw new RouterBadMethodCallException();
                 }
             }else{
-                throw new Exception();
+                throw new RouterException();
             }
         }else{
-            throw new Exception();
+            throw new RouterException();
         }
     }
 

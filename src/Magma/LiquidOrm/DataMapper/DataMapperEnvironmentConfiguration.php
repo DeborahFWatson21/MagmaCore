@@ -33,9 +33,9 @@ class DataMapperEnvironmentConfiguration
     public function getDatabaseCredentials(string $driver):array
     {
         $connectionArray = [];
-        foreach($this->credentials as $credentials)
+        foreach($this->credentials as $credential)
         {
-            if(array_key_exists($driver, $credentials))
+            if(array_key_exists($driver, $credential))
             {
                 $connectionArray = $connectionArray[$driver];
             }
@@ -48,6 +48,8 @@ class DataMapperEnvironmentConfiguration
      * 
      * @param string $driver
      * @return void
+     * 
+     * @throwable DataMapperInvalidArgumentException
      */
     private function isCredentialValid(string $driver):void
     {

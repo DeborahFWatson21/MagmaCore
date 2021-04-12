@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Magma\LiquidOrm\DataMapper;
 
 use Magma\LiquidOrm\DataMapper\Exceptions\DataMapperException;
-use Magma\LiquidOrm\DataMapper\DataMapper;
+use Magma\DatabaseConnection\DatabaseConnectionInterface;
 use Magma\LiquidOrm\DataMapper\DataMapperInterface;
+
 
 class DataMapperFactory
 {
@@ -19,6 +20,10 @@ class DataMapperFactory
 
     /**
      * 
+     * @param string $databaseConnectionString
+     * @param string $dataMapperEnviromentConfiguration
+     * 
+     * @return DataMapperInterface
      */
     public function create(string $databaseConnectionString, string $dataMapperEnviromentConfiguration): DataMapperInterface
     {
@@ -28,6 +33,6 @@ class DataMapperFactory
         {
             throw new DataMapperException($databaseConnectionString . ' is not a valid database connection object');
         }
-        return new DataMapper($databaseConnectionString);
+        return new DataMapper($databaseConnectionObject);
     }
 }

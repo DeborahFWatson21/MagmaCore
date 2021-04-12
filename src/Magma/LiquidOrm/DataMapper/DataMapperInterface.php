@@ -37,14 +37,14 @@ interface DataMapperInterface
      * 
      * @return int|null
      */
-    public function numRole():int;
+    public function numRows():int;
 
     /**
      * Execute function which will execute the prepared statement
      * 
      * @return void
      */
-    public function execute():void;
+    public function execute();
 
     /**
      * Returns a single database row as an object

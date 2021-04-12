@@ -33,7 +33,7 @@ class QueryBuilder implements QueryBuilderInterface
         'raw' => ''
     ];
 
-    protected const QUERY_TYPES = ['insert', 'select', 'update', 'delete', 'raw'];
+    protected const QUERY_TYPES = ['insert', 'select', 'update', 'delete', 'search', 'raw'];
     
     /**
      * 
@@ -140,6 +140,27 @@ class QueryBuilder implements QueryBuilderInterface
              return $this->sqlQuery;
         }
         return false;
+    }
+
+    public function searchQuery() : string
+    {
+        // if ($this->isQueryTypeValid('search ')) {
+        //     if (is_array($this->key['selectors']) && $this->key['selectors'] != '') {
+        //         $this->sqlQuery = "SELECT * FROM {$this->key['table']} WHERE ";
+        //         if ($this->has('selectors')) {
+        //             $values = [];
+        //             foreach ($this->key['selectors'] as $selector) {
+        //                 $values[] = $selector . " LIKE " . "{$selector}";
+        //             }
+        //             if (count($this->key['selectors']) >= 1) {
+        //                 $this->sqlQuery .= implode(" OR ", $values);
+        //             }
+        //         }
+        //     }
+        //     return $this->sqlQuery;
+        // }
+        // return false;
+        return '';
     }
 
     public function rawQuery():string

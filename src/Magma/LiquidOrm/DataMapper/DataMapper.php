@@ -66,6 +66,8 @@ class DataMapper implements DataMapperInterface
 
     /**
      * @inheritDoc
+     * 
+     * @return self
      */
     public function prepare(string $query):self
     {
@@ -126,7 +128,7 @@ class DataMapper implements DataMapperInterface
      * 
      * @return integer
      */
-    public function numRole():int
+    public function numRows():int
     {
         if($this->stmt)
         {
@@ -139,7 +141,7 @@ class DataMapper implements DataMapperInterface
      * 
      * @return void
      */
-    public function execute():void
+    public function execute()
     {
         if($this->stmt)
         {
@@ -216,7 +218,6 @@ class DataMapper implements DataMapperInterface
      * 
      * @param array $fields
      * @return mixed
-     * @throws BaseInvalidArgumentException
      */
     protected function bindSearchValue(array $fields)
     {
@@ -226,6 +227,35 @@ class DataMapper implements DataMapperInterface
             $this->stmt->bindValue(':'.$key, '%'. $value . '%', $this->bind($value));
         }
         return $this->stmt;
+    }
+
+        /**
+     * Returns the query condition merged with the query parameters
+     * 
+     * @param array $conditions
+     * @param array $parameters
+     * @return array
+     */
+    public function buildQueryParameters(array $conditions = [], array $parameters = []) : array
+    {
+        return (!empty($parameters) || (!empty($conditions)) ? array_merge($conditions, $parameters) : $parameters);
+    }
+
+    /**
+     * Persist queries to database
+     * 
+     * @param string $query
+     * @param array $parameters
+     * @return mixed
+     * @throws Throwable
+     */
+    public function persist(string $sqlQuery = [], array $parameters = [])
+    {
+        try {
+            return $this->prepare($sqlQuery)->bindParameters($parameters)->execute();
+        } catch(Throwable $throwable){
+            throw $throwable;
+        }
     }
 
 
