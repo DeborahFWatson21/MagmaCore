@@ -19,7 +19,6 @@ class DatabaseConnection implements DatabaseConnectionInterface
      * @var array
      */
     //protected array $credentials;
-    use PDO;
 
     /**
      * Main constructor class
@@ -52,6 +51,7 @@ class DatabaseConnection implements DatabaseConnectionInterface
         }catch(PDOException $expection){
             throw new DatabaseConnectionException($expection->getMessage(), (int)$expection->getCode());
         }
+        return $this->dbh;
     }
 
     /**

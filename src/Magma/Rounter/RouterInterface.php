@@ -6,13 +6,14 @@ namespace Magma\Router;
 
 interface RouterInterface
 {
+    
     /**
      * Simple add route to the routing table
      * 
      * @param string $route
      * @param array $params
      * 
-     * return void
+     * @return void
      */
     public function add(string $route, array $params):void;
 
@@ -23,7 +24,7 @@ interface RouterInterface
      * 
      * @param string $url
      * 
-     * return void
+     * @return void
      */
     public function dispatch(string $url):void;
 }

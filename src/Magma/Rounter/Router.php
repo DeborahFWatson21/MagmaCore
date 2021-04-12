@@ -13,22 +13,24 @@ class Router implements RouterInterface
      * returns an array of route from our routing table
      * @var array
      */
-    //protected array $routes;
+    protected array $routes = [];
 
     /**
      * returns an array of route paramers
      * @var array
      */
-    //protected array $params;
+    protected array $params;
 
     /**
      * Adds a suffic onto the controller name
      * @var string
      */
-    //protected string $controllerSuffix = 'controller';
+    protected string $controllerSuffix = 'controller';
 
     /**
      * @inheritDoc
+     * 
+     * @return void
      */
     public function add(string $route, array $params):void
     {
@@ -37,6 +39,8 @@ class Router implements RouterInterface
 
      /**
      * @inheritDoc
+     * 
+     * @return void
      */
     public function dispatch(string $url):void
     {
@@ -80,7 +84,7 @@ class Router implements RouterInterface
      * Match the route to the routes in the routing table, seeting the $this->$params property if a route is found
      * 
      * @param string $url
-     * return bool
+     * @return bool
      */
     private function match(string $url):bool
     {
@@ -106,7 +110,7 @@ class Router implements RouterInterface
      * Get the namespace for the controller class. The namespace defined within the route parameters only if it was added.
      * 
      * @param string $string
-     * return string
+     * @return string
      */
     public function getNamespace(string $string):string
     {
